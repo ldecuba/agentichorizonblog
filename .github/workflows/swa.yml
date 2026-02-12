@@ -1,3 +1,12 @@
+name: Check token present
+shell: bash
+run: |
+    if [ -z "${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}" ]; then
+      echo "TOKEN IS EMPTY/NOT AVAILABLE"
+      exit 1
+    fi
+    echo "TOKEN IS PRESENT"
+
 name: Deploy Astro to Azure Static Web Apps
 
 on:
